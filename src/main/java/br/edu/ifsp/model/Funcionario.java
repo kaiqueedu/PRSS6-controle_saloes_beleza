@@ -26,7 +26,7 @@ public class Funcionario implements Serializable {
 	@NotNull
 	private String cpf;
 
-	// VERIFICAR RELACIONAMENTOS(@OneToOne,@OneToMany,@ManyToOne,@ManyToMany) NA MODELAGEM UML 
+	// VERIFICAR RELACIONAMENTOS(@OneToOne,@OneToMany,@ManyToOne,@ManyToMany) NA MODELAGEM UML asdasdasd
 	
 	@OneToOne
 	private Especialidade especialidade;
