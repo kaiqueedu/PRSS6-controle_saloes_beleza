@@ -1,40 +1,28 @@
-package br.edu.ifsp.model;
+package br.edu.ifsp.controller.vo;
 
-import com.sun.istack.NotNull;
+import br.edu.ifsp.model.Endereco;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import org.hibernate.validator.constraints.br.CPF;
 
-@Entity
-public class Cliente implements Serializable {
+public class ClienteResponse implements Serializable {
 
-	private static final long serialVersionUID = -8133683407991692507L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idCliente;
-	@NotNull
-	@CPF
 	private String cpf;
-	@NotNull
 	private String nome;
-	@NotNull
-	private String telefone;
-	@Email
 	private String email;
-	@Embedded
+	private String telefone;
 	private Endereco endereco;
-	@Column(nullable = false, columnDefinition = "TINYINT(1) default 1")
 	private Boolean ativo;
 
-	public Cliente() {
-		ativo = true;
+	public ClienteResponse() {
+	}
+
+	public ClienteResponse(Long idCliente, String cpf, String nome, String email, String telefone, Endereco endereco) {
+		this.idCliente = idCliente;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.email = email;
+		this.telefone = telefone;
+		this.endereco = endereco;
 	}
 
 	public Long getIdCliente() {

@@ -1,34 +1,27 @@
 package br.edu.ifsp.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import com.sun.istack.NotNull;
+import java.io.Serializable;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 6670656061290471396L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private Long cep;
-
+	@NotNull
+	private String logradouro;
 	@NotNull
 	private int numero;
-
-	@NotNull
 	private String complemento;
-
-	//TODO: VERIFICAR RELACIONAMENTOS(@OneToOne,@OneToMany,@ManyToOne,@ManyToMany) NA MODELAGEM UML 
 	
-	public Endereco() {
-		super();
-	}
+	public Endereco() {}
+
+	public String getLogradouro() {	return logradouro; }
+
+	public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
 
 	public Long getCep() {
 		return cep;
